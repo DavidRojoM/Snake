@@ -1,0 +1,1 @@
+1. 12-01-2021. Inicializamos el repositorio en GitHub.
