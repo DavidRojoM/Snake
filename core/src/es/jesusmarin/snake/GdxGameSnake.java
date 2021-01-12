@@ -10,6 +10,7 @@ public class GdxGameSnake extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
 	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	//BBBBBBBBBBBB
 	
 	@Override
 	public void create () {
