@@ -11,6 +11,7 @@ public class GdxGameSnake extends ApplicationAdapter {
 	Texture img;
 	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 	//BBBBBBBBBBBB
+	//CCCCCCCCCCCCCCCCCCCMAMO
 	
 	@Override
 	public void create () {
