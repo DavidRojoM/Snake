@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class GdxGameSnake extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
+	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 	
 	@Override
 	public void create () {
