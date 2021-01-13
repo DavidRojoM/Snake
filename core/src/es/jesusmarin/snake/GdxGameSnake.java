@@ -9,11 +9,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class GdxGameSnake extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
+
+	private ControladorJuego vgControlador;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		//img = new Texture("badlogic.jpg");
+		vgControlador = new ControladorJuego();
 	}
 
 	@Override
