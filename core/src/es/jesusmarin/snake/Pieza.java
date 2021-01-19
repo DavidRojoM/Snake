@@ -1,5 +1,7 @@
 package es.jesusmarin.snake;
 
+import com.badlogic.gdx.Gdx;
+
 public class Pieza {
 
     /////////////////////////////////////////////////////////////////////////
@@ -44,6 +46,12 @@ public class Pieza {
         posY=posNY;
         ancho=nAncho;
     }
+    public int getPosX(){
+        return posX;
+    }
+    public int getPosY(){
+        return posY;
+    }
 
     //PINTARSE(usará la textura que hay en el estado y necesita un escenario -> batch)
 
@@ -65,6 +73,20 @@ public class Pieza {
     //DISPOSE
 
     //COLISIONA(Le pasamos una pieza y entonces nos dice si estan en el mismo sitio)
+    public boolean colisiona(Pieza p){
+        boolean colisionX, colisionY,resultado, colisionRangoX, colisionRangoY;
+        colisionX = posX == p.getPosX();
+        colisionY = posY == p.getPosY();
+        colisionRangoX = posX<0 || posX> Gdx.graphics.getWidth();
+        colisionRangoY = posY<0 || posY> Gdx.graphics.getHeight();
+        resultado = (colisionX && colisionY) || (colisionRangoX || colisionRangoY);
+        return resultado;
+    }
 
     //COPIATE
+
+
+
+
+
 }
