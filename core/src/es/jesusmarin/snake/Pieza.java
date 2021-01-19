@@ -12,18 +12,12 @@ public class Pieza {
     public final static int ARR = 3;
     public final static int ABA = 4;
 
-//POS X
-
     protected int posX;
-
-//POS Y
 
     protected int posY;
 
 //ALTO (ANCHO = ALTO)
-
     protected int ancho;
-
 
 //TEXTURA
 
