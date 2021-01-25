@@ -19,3 +19,5 @@ El equipo A se compromete a hacer commit de las nuevas funcionalidades cada juev
 8. 2021-01-19-Javier S: Me he encargado de desarrollar el diagrama UML(Pieza y Fondo con sus ESTADO y COMPORTAMIENTO).
 
 9. 2021-01-19-David R y Dani D: Modificaciones en el método colisiona de la clase Pieza.
+
+10. 2021-01-25 Miguel L., Dani M., Javier S. : Completar la clase fondo y actualizar UML con la nueva clase.
