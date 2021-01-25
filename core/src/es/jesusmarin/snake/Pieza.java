@@ -18,10 +18,10 @@ public class Pieza {
 
     protected int posY;
 
-//ALTO (ANCHO = ALTO)
+    //ALTO (ANCHO = ALTO)
     protected int ancho;
 
-//TEXTURA
+    //TEXTURA
 
 
 
@@ -40,6 +40,7 @@ public class Pieza {
         posY=posNY;
         ancho=nAncho;
     }
+
     public int getPosX(){
         return posX;
     }
@@ -48,6 +49,7 @@ public class Pieza {
     }
 
     //PINTARSE(usará la textura que hay en el estado y necesita un escenario -> batch)
+
 
     //MOVERSE (afectará a posX y posY, pero nunca a las 2 a la vez)
 
@@ -78,8 +80,6 @@ public class Pieza {
     }
 
     //COPIATE
-
-
 
 
 
