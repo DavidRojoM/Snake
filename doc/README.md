@@ -23,3 +23,5 @@ El equipo A se compromete a hacer commit de las nuevas funcionalidades cada juev
 10. 2021-01-25 Miguel L., Dani M., Javier S. : Completar la clase fondo y actualizar UML con la nueva clase.
 
 11. 2021-01-25 Miguel L., Dani M., Javier S. : Creamos la clase serpiente y planteamos su estado y algunos comportamientos.
+
+12. 2021-01-26- David R. Cambios en la clase Pieza y Serpiente.
