@@ -20,10 +20,10 @@ El equipo A se compromete a hacer commit de las nuevas funcionalidades cada juev
 
 9. 2021-01-19-David R y Dani D: Modificaciones en el método colisiona de la clase Pieza.
 
-10. 2021-01-25 Miguel L., Dani M., Javier S. : Completar la clase fondo y actualizar UML con los nuevos métodos añadidos.
+10. 2021-01-25. Miguel L., Dani M., Javier S. : Completar la clase fondo y actualizar UML con los nuevos métodos añadidos.
 
-11. 2021-01-25 Miguel L., Dani M., Javier S. : Creamos la clase serpiente y planteamos su estado y algunos comportamientos.
+11. 2021-01-25. Miguel L., Dani M., Javier S. : Creamos la clase serpiente y planteamos su estado y algunos comportamientos.
 
-12. 2021-01-26- David R. Cambios en la clase Pieza y Serpiente.
+12. 2021-01-26. David R. Cambios en la clase Pieza y Serpiente.
 
 13. 2021-02-02. Javier S. Subir capturas del desarrollo que ha tenido el diagrama UML
