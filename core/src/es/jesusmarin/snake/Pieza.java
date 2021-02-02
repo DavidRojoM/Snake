@@ -43,23 +43,23 @@ public class Pieza {
     ///////////////////////////////////////////////////////////////////////
 
 
-    //CONSTRUCTOR(necesita posiciones de partida, ancho y no necesitamos textura)
-
+    //Constructor(necesita posicion de partida,ancho y no necesitamos textura)
     public Pieza(int posNX, int posNY, int nAncho){
-        posX=posNX;
-        posY=posNY;
-        ancho=nAncho;
+        posX = posNX;
+        posY = posNY;
+        ancho = nAncho;
         textura = new Texture(MIIMAGEN);
     }
 
-    public int getPosX(){
+
+    public int getPosX() {
         return posX;
     }
-    public int getPosY(){
+
+    public int getPosY() {
         return posY;
     }
-
-    //PINTARSE(usará la textura que hay en el estado y necesita un escenario -> batch)
+    //Pintarse(usara textura y neceita un escenario batch)
 
     public void render(SpriteBatch miSB){
         miSB.begin();
@@ -67,22 +67,23 @@ public class Pieza {
         miSB.end();
     }
 
-    //MOVERSE (afectará a posX y posY, pero nunca a las 2 a la vez)
-
+    //Moverse(mover en x o y nunca  a la vez)
     public void moverse(int direccion){
         switch (direccion){
-            case DER:posX += ancho; //DER
-            break;
-            case IZQ:posX-= ancho; //IZQ
-            break;
-            case ARR: posY+= ancho; //ARR
-            break;
-            case ABA:posY-=ancho; //ABAJ
-            break;
+            case DER:
+                posX += ancho;
+                break;
+            case IZQ:
+                posX -= ancho;
+            case ARR:
+                posY += ancho;
+                break;
+            case ABA:
+                posY -= ancho;
+                break;
         }
     }
-
-    //DISPOSE
+    //Dispose
     public void dispose(){
         textura.dispose();
     }
