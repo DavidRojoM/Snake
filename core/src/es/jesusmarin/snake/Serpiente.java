@@ -41,8 +41,11 @@ public class Serpiente {
 
     //CONSTRUCTOR/ES
     public Serpiente(int PosX, int PosY, int nancho){
+        Pieza nuevaCabeza;
+        nuevaCabeza = new Pieza(PosX,PosY,nancho);
+        direccion = Pieza.ARR;
         cuerpo = new ArrayList();
-        cuerpo.add(new Pieza(PosX,PosY, nancho));
+        cuerpo.add(nuevaCabeza);
         //imgSerpiente= new Texture(file_serpiente);
     }
 
@@ -50,19 +53,23 @@ public class Serpiente {
     public void render(SpriteBatch miSB){
         //Si la serpiente es un conjunto de piezas, para dibujar a la serpiente tendre que dibujar todas las piezas
 
-        for (int i=0;i< cuerpo.size();i++){
-            cuerpo.get(i).render(miSB);
+        for (Pieza unaPieza: cuerpo){
+            unaPieza.render(miSB);
         }
     }
 
     public void moverse(int direccion){
+        this.crecer();
+
+        cuerpo.remove(cuerpo.size()-1);
+        /*
         switch (direccion){
             case Pieza.DER:
-                /* 1.Crear una pieza exactamente en la misma posicion que la cabeza
+                1.Crear una pieza exactamente en la misma posicion que la cabeza
             2.Mover esa pieza a la derecha(Solo esto dentro del switch, lo demás fuera)
             3.Añadir esa pieza a mi conjunto
             4.Eliminar la ultima posicion del array(acordarnos de hacer el dispose)
-            */
+
                 break;
             case IZQ:posX-= ancho; //IZQ
                 break;
@@ -70,16 +77,24 @@ public class Serpiente {
                 break;
             case ABA:posY-=ancho; //ABAJ
                 break;
+
         }
+
+         */
     }
 
-    public void crecer(){//Lo mismo que moverse, esto es llamado en el controlador cada x frames
 
+    public void crecer(){//Lo mismo que moverse, esto es llamado en el controlador cada x frames
+    Pieza nuevaCabeza;
+    nuevaCabeza = new Pieza(cuerpo.get(0));
+    nuevaCabeza.moverse(direccion);
+    cuerpo.add(0,nuevaCabeza);
     }
 
     public void dispose(){//for y dispose de cada pieza
-        for (int i=0;i<cuerpo.size();i++){
-            cuerpo.get(i).dispose();
+
+        for (Pieza unaPieza: cuerpo){
+            unaPieza.dispose();
         }
     }
 }

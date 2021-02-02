@@ -6,16 +6,43 @@ package es.jesusmarin.snake;
  */
 
 public class ControladorJuego {
+
+
     /////////////////////////////////////////////////////////////////////////
     //
     //ESTADO
     //
     ///////////////////////////////////////////////////////////////////////
 
-    //CONSTANTES
+private static ControladorJuego miControlador;
+    //Esto es un truco que pone un objeto ControladorJuego en la memoria ram en el espacio asignato a la clase ControladorJuego
 
-    static private final int PANTALLA_INICIO = 0;
-    static private final int PANTALLA_JUEGO = 1;
+
+    //Objetos que controla el controlador
+
+    //Una serpiente
+    protected Serpiente snake;
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////
+    //
+    //COMPORTAMIENTOS
+    //
+    /////////////////////////////////////////////////////////////////////////////////////
+private ControladorJuego(){
+}
+
+public static ControladorJuego getInstance(int posXinicial,int posYinicial,int ancho){
+    if (ControladorJuego.miControlador==null){
+        miControlador = new ControladorJuego();
+        miControlador.setSnake(new Serpiente(posXinicial,posYinicial,ancho));
+    }
+    return ControladorJuego.miControlador;
+}
+public void setSnake(Serpiente nuevaSerpiente){
+    snake=nuevaSerpiente;
+}
 
     //RESTO DEL ESTADO
 

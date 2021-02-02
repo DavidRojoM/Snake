@@ -10,13 +10,29 @@ public class GdxGameSnake extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
 
-	private ControladorJuego vgControlador;
+	private ControladorJuego miControlador;
+
+	private static final float PANTALLA90 = 0.9f;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
+
+		//Aqui tengo que averiguar que ancho de pantalla tengo, que alto, que forma tendran las casillas donde poner las piezas de la serpiente,etc..
+
+		int anchoPantalla,altoPantalla,elMasChico;
+		anchoPantalla=Gdx.graphics.getWidth();
+		altoPantalla=Gdx.graphics.getHeight();
+		elMasChico = altoPantalla;
+		if (anchoPantalla<elMasChico)
+			elMasChico = anchoPantalla;
+
+		//Ahora se que elMasChico esta en la resolucion que usare para calcular el 90%
+
+		elMasChico = (int) ((float)elMasChico*PANTALLA90);
+
+		miControlador = ControladorJuego.getInstance(anchoPantalla/2,altoPantalla/2,elMasChico/20);
 		//img = new Texture("badlogic.jpg");
-		vgControlador = new ControladorJuego();
 	}
 
 	@Override
