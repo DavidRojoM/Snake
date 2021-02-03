@@ -27,3 +27,5 @@ El equipo A se compromete a hacer commit de las nuevas funcionalidades cada juev
 12. 2021-01-26. David R. Cambios en la clase Pieza y Serpiente.
 
 13. 2021-02-02. Javier S. Subir capturas del desarrollo que ha tenido el diagrama UML
+
+14. 2021-02-03. David R.Cambios en clases: Pieza, Serpiente, ControladorJuego y GdxGameSnake
