@@ -29,3 +29,5 @@ El equipo A se compromete a hacer commit de las nuevas funcionalidades cada juev
 13. 2021-02-02. Javier S. Subir capturas del desarrollo que ha tenido el diagrama UML
 
 14. 2021-02-03. David R.Cambios en clases: Pieza, Serpiente, ControladorJuego y GdxGameSnake
+
+15.2021-02-09. Javier S. Subir captura diagrama casos de uso.
