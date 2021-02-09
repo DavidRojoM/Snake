@@ -1,6 +1,8 @@
 package es.jesusmarin.snake;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Fondo {
     /////////////////////////////////////////////////////////////////////////////////////
@@ -17,7 +19,8 @@ public class Fondo {
     private int ancho;
     private int alto;
 
-    private static final String FILE_FONDO1 = "fondo1.png";
+    private static final String FILE_FONDO1 = "fondo1.png"; //Nombre del archivo.
+
     /////////////////////////////////////////////////////////////////////////////////////
     //
     //COMPORTAMIENTOS
@@ -34,7 +37,33 @@ public class Fondo {
         posY = altoVentana/2;
         imgFondo = new Texture(fichero);
         Fondo fondo1 = new Fondo(FILE_FONDO1,anV,alV);
+        ancho = imgFondo.getWidth();
+        alto = imgFondo.getHeight();
+    }
 
+    //método para pintar el fondo
+    public void pintate(SpriteBatch miSB) {
 
+        TextureRegion ventana;
+
+        ventana = new TextureRegion(imgFondo,posX,posY,anchoVentana,altoVentana);
+
+        miSB.begin();
+        miSB.draw(ventana,0,0);
+        miSB.end();
+    }
+
+    //DISPOSE
+    public void dispose() {
+        imgFondo.dispose();
+    }
+
+    //Metodos para obtener el alto y ancho de la imagen del fondo para las colisiones.
+    public int getAltoFondo() {
+        return (int)imgFondo.getHeight();
+    }
+
+    public int getAnchoFondo() {
+        return (int)imgFondo.getWidth();
     }
 }

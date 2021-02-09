@@ -1,6 +1,8 @@
 package es.jesusmarin.snake;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Pieza {
 
@@ -18,10 +20,18 @@ public class Pieza {
 
     protected int posY;
 
-//ALTO (ANCHO = ALTO)
+    //ALTO (ANCHO = ALTO)
     protected int ancho;
 
-//TEXTURA
+    //TEXTURA
+
+    protected Texture textura;
+    protected static final String MIIMAGEN = "SpriteSnake.jpg";
+    /*
+    protected static final String MIIMAGENGRANDE = "SpriteSnakeG.jpg";
+    protected static final String MIIMAGENPEQ = "SpriteSnakeP.jpg";
+
+     */
 
 
 
@@ -39,7 +49,9 @@ public class Pieza {
         posX=posNX;
         posY=posNY;
         ancho=nAncho;
+        textura = new Texture(MIIMAGEN);
     }
+
     public int getPosX(){
         return posX;
     }
@@ -48,6 +60,12 @@ public class Pieza {
     }
 
     //PINTARSE(usará la textura que hay en el estado y necesita un escenario -> batch)
+
+    public void render(SpriteBatch miSB){
+        miSB.begin();
+        miSB.draw(this.textura,this.posX,this.posY,this.ancho,this.ancho);
+        miSB.end();
+    }
 
     //MOVERSE (afectará a posX y posY, pero nunca a las 2 a la vez)
 
@@ -65,21 +83,25 @@ public class Pieza {
     }
 
     //DISPOSE
+    public void dispose(){
+        textura.dispose();
+    }
 
     //COLISIONA(Le pasamos una pieza y entonces nos dice si estan en el mismo sitio)
     public boolean colisiona(Pieza p){
-        boolean colisionX, colisionY,resultado, colisionRangoX, colisionRangoY;
-        colisionX = posX == p.getPosX();
-        colisionY = posY == p.getPosY();
+        boolean colisionX, colisionY,resultado; //colisionRangoX, colisionRangoY;
+        colisionX = (posX == p.getPosX());
+        colisionY = (posY == p.getPosY());
+        /*
         colisionRangoX = posX<0 || posX> Gdx.graphics.getWidth();
         colisionRangoY = posY<0 || posY> Gdx.graphics.getHeight();
-        resultado = (colisionX && colisionY) || (colisionRangoX || colisionRangoY);
+
+         */
+        resultado = (colisionX && colisionY);// || (colisionRangoX || colisionRangoY);
         return resultado;
     }
 
     //COPIATE
-
-
 
 
 
