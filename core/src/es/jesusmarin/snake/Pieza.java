@@ -51,6 +51,13 @@ public class Pieza {
         ancho=nAncho;
         textura = new Texture(MIIMAGEN);
     }
+    //Constructor copia
+    public Pieza(Pieza otraPieza){
+        posX = otraPieza.getPosX();
+        posY = otraPieza.getPosY();
+        ancho = otraPieza.getAncho();
+        textura = new Texture(MIIMAGEN);
+    }
 
     public int getPosX(){
         return posX;
@@ -59,7 +66,10 @@ public class Pieza {
         return posY;
     }
 
-    //PINTARSE(usará la textura que hay en el estado y necesita un escenario -> batch)
+    public int getAncho() {
+        return ancho;
+    }
+//PINTARSE(usará la textura que hay en el estado y necesita un escenario -> batch)
 
     public void render(SpriteBatch miSB){
         miSB.begin();
@@ -84,7 +94,9 @@ public class Pieza {
 
     //DISPOSE
     public void dispose(){
-        textura.dispose();
+        if (textura!=null){
+            textura.dispose();
+        }
     }
 
     //COLISIONA(Le pasamos una pieza y entonces nos dice si estan en el mismo sitio)
