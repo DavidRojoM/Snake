@@ -44,7 +44,7 @@ David R. Cambios en la clase Pieza y Serpiente.
 Javier S. Subir capturas del desarrollo que ha tenido el diagrama UML
 ### 14. 2021-02-03. <br>
 David R.Cambios en clases: Pieza, Serpiente, ControladorJuego y GdxGameSnake
-### 15.2021-02-09. <br>
+### 15. 2021-02-09. <br>
 Javier S. Subir captura diagrama casos de uso.
 ### 16. 2021-02-12. <br>
 Daniel D, Alejandro G, David R. Cambios en las clases Pieza, Serpiente, ControladorJuego, GdxGameSnake, EstadoTeclado.
@@ -52,3 +52,5 @@ Daniel D, Alejandro G, David R. Cambios en las clases Pieza, Serpiente, Controla
 Daniel D. Diseño desde 0 de imagenes PixelArt para la pantalla de Inicio y Fin del juego(PROVISIONAL).
 ### 18. 2021-02-17. <br>
 David R, Alejandro G, Daniel D. Depuración de código, cambios en clases: Serpiente, ControladorJuego, GdxGameSnake, Pieza. Alcanzamos la primera versión jugable. El próximo objetivo es depurar pequeños errores y añadir un fondo
+### 19. 2021-02-17. <br>
+David R. Mejoras en el diseño del README.
