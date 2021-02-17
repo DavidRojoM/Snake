@@ -34,4 +34,4 @@ El equipo A se compromete a hacer commit de las nuevas funcionalidades cada juev
 
 16. 2021-02-12. Daniel D, Alejandro G, David R. Cambios en las clases Pieza, Serpiente, ControladorJuego, GdxGameSnake, EstadoTeclado.
 
-17. 2021-02-17. David R, Alejandro G, Daniel . Depuración de código, cambios en clases: Serpiente, ControladorJuego, GdxGameSnake, Pieza. Alcanzamos la primera versión jugable. El próximo objetivo es depurar pequeños errores y añadir un fondo
+17. 2021-02-17. David R, Alejandro G, Daniel D. Depuración de código, cambios en clases: Serpiente, ControladorJuego, GdxGameSnake, Pieza. Alcanzamos la primera versión jugable. El próximo objetivo es depurar pequeños errores y añadir un fondo
