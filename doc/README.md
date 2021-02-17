@@ -29,7 +29,7 @@ El equipo A, formado por Miguel Angel, Javier Sánchez y Dani Mulero y el equipo
 
 El equipo A se compromete a hacer commit de las nuevas funcionalidades cada jueves y el equipo B cada miercoles
 ### 7. 2021-01-19.  <br>
-David R. El equipo A se encargarán de hacer el diagrama UML. El equipo B se encargarán de la clase Pieza.
+David R. El equipo A se encargarán de hacer los diagramas. El equipo B se encargarán de la clases.
 ### 8. 2021-01-19. <br>
 Javier S. Me he encargado de desarrollar el diagrama UML(Pieza y Fondo con sus ESTADOS y COMPORTAMIENTOS).
 ### 9. 2021-01-19. <br>
@@ -37,7 +37,7 @@ David R y Dani D: Modificaciones en el método colisiona de la clase Pieza.
 ### 10. 2021-01-25. <br>
  Miguel L., Dani M., Javier S. : Completar la clase fondo y actualizar UML con los nuevos métodos añadidos.
 ### 11. 2021-01-25. <br>
-Miguel L., Dani M., Javier S. : Creamos la clase serpiente y planteamos su estado y algunos comportamientos.
+Miguel L., Dani M., Javier S. : Creamos la clase serpiente en el diagrama y planteamos su estado y algunos comportamientos.
 ### 12. 2021-01-26. <br>
 David R. Cambios en la clase Pieza y Serpiente.
 ### 13. 2021-02-02. <br>
