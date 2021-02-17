@@ -28,7 +28,8 @@ public class Serpiente {
     protected ArrayList<Pieza> cuerpo;
     protected int direccion;
 
-    protected int posX,posY,ancho;
+    protected int posX,posY,ancho,anchoReal,altoReal,anchoAltoPantalla;
+
     //private Pieza piezaSerpiente;
     //protected Texture imgSerpiente;
     //protected String file_serpiente = "serpiente.png";
@@ -42,9 +43,14 @@ public class Serpiente {
     ///////////////////////////////////////////////////////////////////////
 
     //CONSTRUCTOR/ES
-    public Serpiente(int PosX, int PosY, int nancho){
+    public Serpiente(int PosX, int PosY, int nancho, int anchoAltoPantalla,int anchoReal,int altoReal){
         Pieza nuevaCabeza;
         nuevaCabeza = new Pieza(PosX,PosY,nancho);
+
+        this.anchoAltoPantalla = anchoAltoPantalla;
+
+        this.anchoReal = anchoReal;
+        this.altoReal = altoReal;
 
         direccion = Pieza.ARR;
         this.posX = posX;
@@ -61,6 +67,10 @@ public class Serpiente {
         posX = antigua.getPosX();
         posY = antigua.getPosY();
         ancho = antigua.getAncho();
+
+        anchoAltoPantalla=antigua.getAnchoAltoPantalla();
+        anchoReal=antigua.getAnchoReal();
+        altoReal=antigua.getAltoReal();
 
         nuevaCabeza = new Pieza(posX,posY,ancho);
 
@@ -82,6 +92,18 @@ public class Serpiente {
 
     public int getAncho() {
         return ancho;
+    }
+
+    public int getAnchoAltoPantalla() {
+        return anchoAltoPantalla;
+    }
+
+    public int getAnchoReal() {
+        return anchoReal;
+    }
+
+    public int getAltoReal() {
+        return altoReal;
     }
 
     public void moverse(){
@@ -116,17 +138,8 @@ public class Serpiente {
     }
     //Comportamiento hasMuerto
     public boolean hasMuerto(){
-        boolean resultado;
 
-        if (cabezaChocaConCuerpo()){
-            resultado = true;
-        }else if (cabezaChocaConParedes()){
-
-            resultado = true;
-        }else{
-            resultado = false;
-        }
-        return resultado;
+        return (cabezaChocaConCuerpo() || cabezaChocaConParedes());
     }
     //Testear el choque de la serpiente con su cuerpo
     private boolean cabezaChocaConCuerpo(){
@@ -135,7 +148,7 @@ public class Serpiente {
         if (cuerpo.size()<4) return false;
 
         for (int i=4;i<cuerpo.size()-1;i++){
-            if (cabezaSerpiente.colisiona(cuerpo.get(i))){
+            if (cuerpo.get(i).colisiona(cabezaSerpiente)){
                 return true;
             }
         }
@@ -148,13 +161,57 @@ public class Serpiente {
         //si no he chocado arriba false
         //si no, false
 
-        Pieza cabezaSerpiente = cuerpo.get(0);
+        /*Pieza cabezaSerpiente = cuerpo.get(0);
         if (cabezaSerpiente.getPosX()<0) return false;
         else if (cabezaSerpiente.getPosY()<0) return false;
-        else if (cabezaSerpiente.getPosX()>elMasChico) return false;
-        else if (cabezaSerpiente.getPosY()>elMasChico) return false;
+        else if (cabezaSerpiente.getPosX()>anchoAltoPantalla) return false;
+        else if (cabezaSerpiente.getPosY()>anchoAltoPantalla) return false;
+        else return true;
 
+         */
         //PREGUNTAR A ANDRES
+        float limiteIzq,limiteDer;
+        float limiteArr,limiteAba;
+
+        Pieza cabeza= cuerpo.get(0);
+
+        /*limiteIzq = (anchoReal-anchoAltoPantalla)/2;
+        limiteDer = limiteIzq + anchoAltoPantalla;
+        limiteArr = (altoReal-anchoAltoPantalla)/2;
+        limiteAba = limiteArr + anchoAltoPantalla;
+
+         */
+
+        limiteIzq = 0;
+        limiteAba = Gdx.graphics.getHeight();
+        limiteDer = Gdx.graphics.getWidth();
+        limiteArr = 0;
+        return (cabeza.getPosX()<limiteIzq || cabeza.getPosX()>limiteDer ||
+                cabeza.getPosY()<limiteArr || cabeza.getPosY()>limiteAba);
+
+    }
+
+    public void cambiaDireccion(EstadoTeclado miTeclado){
+        //En funcion de la direccion de la serpiente, mirando el teclado , decido que direccion nueva tomar
+
+        switch (this.direccion){
+            case Pieza.ABA:
+            case Pieza.ARR:
+                if (miTeclado.isTeclaDer()){
+                this.direccion = Pieza.DER;
+            }else {
+                this.direccion = Pieza.IZQ;
+            }
+            break;
+            case Pieza.DER:
+            case Pieza.IZQ:
+                if (miTeclado.isTeclaAbajo()){
+                    direccion = Pieza.ABA;
+                }else{
+                    direccion = Pieza.ARR;
+                }
+                break;
+        }
     }
 
 }

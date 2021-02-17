@@ -26,7 +26,7 @@ public class Pieza {
     //TEXTURA
 
     protected Texture textura;
-    protected static final String MIIMAGEN = "SpriteSnake.jpg";
+    protected static final String MIIMAGEN = "SpriteSnake.png";
     /*
     protected static final String MIIMAGENGRANDE = "SpriteSnakeG.jpg";
     protected static final String MIIMAGENPEQ = "SpriteSnakeP.jpg";

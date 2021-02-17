@@ -8,11 +8,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GdxGameSnake extends ApplicationAdapter {
 	SpriteBatch batch;
-	Texture img;
+	//Texture img;
 
 	private ControladorJuego miControlador;
 
-	private static final float PANTALLA90 = 0.9f;
+	private static final float PORCENTAJE_PANTALLA_USADA = 0.9f;
 	
 	@Override
 	public void create () {
@@ -21,23 +21,23 @@ public class GdxGameSnake extends ApplicationAdapter {
 		//Aqui tengo que averiguar que ancho de pantalla tengo, que alto, que forma tendran las casillas donde poner las piezas de la serpiente,etc..
 
 		int anchoPantalla,altoPantalla,elMasChico;
+
 		anchoPantalla=Gdx.graphics.getWidth();
 		altoPantalla=Gdx.graphics.getHeight();
-		elMasChico = altoPantalla;
-		if (anchoPantalla<elMasChico)
-			elMasChico = anchoPantalla;
+
+		elMasChico = Math.min(anchoPantalla,altoPantalla);
 
 		//Ahora se que elMasChico esta en la resolucion que usare para calcular el 90%
 
-		elMasChico = (int) ((float)elMasChico*PANTALLA90);
+		elMasChico = (int) ((float)elMasChico*PORCENTAJE_PANTALLA_USADA);
 
-		miControlador = ControladorJuego.getInstance(anchoPantalla/2,altoPantalla/2,elMasChico/20);
+		miControlador = ControladorJuego.getInstance(anchoPantalla/2,altoPantalla/2,elMasChico/20,elMasChico,anchoPantalla,altoPantalla);
 		//img = new Texture("badlogic.jpg");
 	}
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClearColor(0, 1, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		//batch.begin();
 		//batch.draw(img, 0, 0);
@@ -47,8 +47,8 @@ public class GdxGameSnake extends ApplicationAdapter {
 	
 	@Override
 	public void dispose(){
-		batch.dispose();
+		//batch.dispose();
 		miControlador.dispose();
-		img.dispose();
+		//img.dispose();
 	}
 }

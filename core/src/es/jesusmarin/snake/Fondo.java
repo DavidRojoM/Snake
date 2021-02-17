@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class Fondo {
+/*public class Fondo {
     /////////////////////////////////////////////////////////////////////////////////////
     //
     //ESTADO
@@ -67,3 +67,5 @@ public class Fondo {
         return (int)imgFondo.getWidth();
     }
 }
+
+ */
