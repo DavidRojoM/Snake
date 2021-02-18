@@ -35,7 +35,7 @@ Javier S. Me he encargado de desarrollar el diagrama UML(Pieza y Fondo con sus E
 ### 9. 2021-01-19. <br>
 David R y Dani D: Modificaciones en el método colisiona de la clase Pieza.
 ### 10. 2021-01-25. <br>
- Miguel L., Dani M., Javier S. : Completar la clase fondo y actualizar UML con los nuevos métodos añadidos.
+Miguel L., Dani M., Javier S. : Completar la clase fondo y actualizar UML con los nuevos métodos añadidos.
 ### 11. 2021-01-25. <br>
 Miguel L., Dani M., Javier S. : Creamos la clase serpiente en el diagrama y planteamos su estado y algunos comportamientos.
 ### 12. 2021-01-26. <br>
@@ -54,3 +54,5 @@ Daniel D. Diseño desde 0 de imagenes PixelArt para la pantalla de Inicio y Fin 
 David R, Alejandro G, Daniel D. Depuración de código, cambios en clases: Serpiente, ControladorJuego, GdxGameSnake, Pieza. Alcanzamos la primera versión jugable. El próximo objetivo es depurar pequeños errores y añadir un fondo
 ### 19. 2021-02-17. <br>
 David R. Mejoras en el diseño del README.
+### 19. 2021-02-18. <br>
+Daniel D. cambios en las clases ControladorJuego, GdxGameSnake. Finalice el apartado artistico.

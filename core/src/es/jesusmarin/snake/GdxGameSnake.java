@@ -12,13 +12,17 @@ public class GdxGameSnake extends ApplicationAdapter {
 
 	private ControladorJuego miControlador;
 
+
+
 	private static final float PORCENTAJE_PANTALLA_USADA = 0.9f;
 	
 	@Override
 	public void create () {
+
 		batch = new SpriteBatch();
 
-		//Aqui tengo que averiguar que ancho de pantalla tengo, que alto, que forma tendran las casillas donde poner las piezas de la serpiente,etc..
+
+		//Aqui tengo que averiguar que ancho de pantalla tengo, que alto, que forma tendran las casillas donde poner las piezas de la serpiente,etc..r
 
 		int anchoPantalla,altoPantalla,elMasChico;
 
@@ -30,19 +34,29 @@ public class GdxGameSnake extends ApplicationAdapter {
 		//Ahora se que elMasChico esta en la resolucion que usare para calcular el 90%
 
 		elMasChico = (int) ((float)elMasChico*PORCENTAJE_PANTALLA_USADA);
+		Gdx.graphics.setWindowedMode(elMasChico, elMasChico);
 
 		miControlador = ControladorJuego.getInstance(anchoPantalla/2,altoPantalla/2,elMasChico/20,elMasChico,anchoPantalla,altoPantalla);
+
 		//img = new Texture("badlogic.jpg");
 	}
 
+
+
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(0, 1, 0, 1);
+
+
+
+
+		Gdx.gl.glClearColor(46/255f, 146/255f, 59/255f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		//batch.begin();
 		//batch.draw(img, 0, 0);
 		//batch.end();
+
 		miControlador.render();
+
 	}
 	
 	@Override

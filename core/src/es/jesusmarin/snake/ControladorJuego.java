@@ -23,6 +23,9 @@ public class ControladorJuego {
     //CONSTANTES
     protected final static String IMAGEN_INICIO = "imgInicio.png";
     protected final static String IMAGEN_FIN = "imgFin.png";
+    protected final static String IMAGEN_FONDO = "imgFondo.png";
+    protected Texture imgFondo;
+
     protected final int TIEMPO_CRECER = 239;
     protected final int TIEMPO_MOVER = 59;
 
@@ -79,7 +82,7 @@ private ControladorJuego(int anchoReal){ //FALTA PONER ANCHOPANTALLA POR PARAMET
 
 }
 
-public static ControladorJuego getInstance(int posXinicial,int posYinicial,int ancho,int altoAnchoPantalla, int anchoReal,int altoReal){
+public static ControladorJuego getInstance(int posXinicial,int posYinicial,int ancho ,int altoAnchoPantalla, int anchoReal,int altoReal){
     if (ControladorJuego.miControlador==null){
         miControlador = new ControladorJuego(altoAnchoPantalla);
         miControlador.setSnake(new Serpiente(posXinicial,posYinicial,ancho,altoAnchoPantalla,anchoReal,altoReal));
@@ -89,13 +92,17 @@ public static ControladorJuego getInstance(int posXinicial,int posYinicial,int a
 private void pantallaInicio(){
     batch.begin();
     //AQUI HABRIA QUE PINTAR EL FONDO
+
     batch.draw(imgInicial,0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+
     batch.end();
+
 
     boolean recienTocado;
     recienTocado = Gdx.input.justTouched();
 
     if (recienTocado){
+
         this.iniciaPartida();
     }
 }
@@ -132,7 +139,7 @@ private void controlaEstadoJugando(){
         controlTiempo=1;
     }else{
         controlTiempo++;
-    }
+}
 
     //Me habre chocado?
     if (snake.hasMuerto()){
@@ -145,6 +152,7 @@ private void controlaEstadoJugando(){
 
 }
 private void iniciaPartida(){
+
     Serpiente nuevaSer = new Serpiente(snake);
     controladorVG = VideoJuego.JUGANDO;
     snake.dispose();
@@ -154,6 +162,7 @@ private void finalPartida(){
 
     batch.begin();
     //AQUI ES PROBABLE QUE HAYA QUE PINTAR EL FONDO
+
     batch.draw(imgFinal,0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
     batch.end();
 
@@ -164,7 +173,12 @@ private void finalPartida(){
         this.iniciaPartida();
     }
 }
+
 public void render(){
+    imgFondo = new Texture(IMAGEN_FONDO);
+    batch.begin();
+    batch.draw(imgFondo,0,0,Gdx.graphics.getHeight(),Gdx.graphics.getWidth());
+    batch.end();
     switch (controladorVG){
         case INICIO: this.pantallaInicio();
         break;
@@ -174,10 +188,10 @@ public void render(){
         break;
     }
 }
+
 public void setSnake(Serpiente nuevaSerpiente){
     snake=nuevaSerpiente;
 }
-
 
 public void dispose() {
     if (snake != null) snake.dispose();
@@ -186,5 +200,5 @@ public void dispose() {
     imgFinal.dispose();
 
 
-}
+    }
 }
