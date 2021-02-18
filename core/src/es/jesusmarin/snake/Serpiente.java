@@ -43,9 +43,9 @@ public class Serpiente {
     ///////////////////////////////////////////////////////////////////////
 
     //CONSTRUCTOR/ES
-    public Serpiente(int PosX, int PosY, int nancho, int anchoAltoPantalla,int anchoReal,int altoReal){
+    public Serpiente(int posX, int posY, int nancho, int anchoAltoPantalla,int anchoReal,int altoReal){
         Pieza nuevaCabeza;
-        nuevaCabeza = new Pieza(PosX,PosY,nancho);
+        nuevaCabeza = new Pieza(posX,posY,nancho);
 
         this.anchoAltoPantalla = anchoAltoPantalla;
 

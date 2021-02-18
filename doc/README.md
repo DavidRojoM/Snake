@@ -54,5 +54,7 @@ Daniel D. Diseño desde 0 de imagenes PixelArt para la pantalla de Inicio y Fin 
 David R, Alejandro G, Daniel D. Depuración de código, cambios en clases: Serpiente, ControladorJuego, GdxGameSnake, Pieza. Alcanzamos la primera versión jugable. El próximo objetivo es depurar pequeños errores y añadir un fondo
 ### 19. 2021-02-17. <br>
 David R. Mejoras en el diseño del README.
-### 19. 2021-02-18. <br>
+### 20. 2021-02-18. <br>
 Daniel D. cambios en las clases ControladorJuego, GdxGameSnake. Finalice el apartado artistico.
+### 21. 2021-02-18. <br>
+David R. Arreglado bug doble movimiento al moverse y crecer en el mismo frame.

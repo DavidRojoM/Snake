@@ -26,8 +26,8 @@ public class ControladorJuego {
     protected final static String IMAGEN_FONDO = "imgFondo.png";
 
 
-    protected final int TIEMPO_CRECER = 239;
-    protected final int TIEMPO_MOVER = 59;
+    protected final int TIEMPO_CRECER = 120;
+    protected final int TIEMPO_MOVER = 30;
 
 
     //Esto es un truco que pone un objeto ControladorJuego en la memoria ram en el espacio asignado a la clase ControladorJuego
@@ -134,13 +134,17 @@ private void controlaEstadoJugando(){
     }
 
     //si tengo que mover la serpiente o crecer la serpiente, la muevo o la crezco
-    if (controlTiempo % TIEMPO_MOVER==0){
-        snake.moverse();
-        controlTiempo++;
-    }else if (controlTiempo==TIEMPO_CRECER){
+
+    //CREO QUE EL PROBLEMA DE MOVERSE Y CRECER A LA VEZ ESTA AQUI (SI CRECES NO TE MUEVES)
+
+
+    if (controlTiempo==TIEMPO_CRECER){
         snake.crecer();
         controlTiempo=1;
-    }else{
+    }else if (controlTiempo % TIEMPO_MOVER==0){
+        snake.moverse();
+        controlTiempo++;
+    } else{
         controlTiempo++;
 }
 
