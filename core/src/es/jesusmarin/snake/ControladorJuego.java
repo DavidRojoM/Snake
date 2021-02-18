@@ -24,7 +24,7 @@ public class ControladorJuego {
     protected final static String IMAGEN_INICIO = "imgInicio.png";
     protected final static String IMAGEN_FIN = "imgFin.png";
     protected final static String IMAGEN_FONDO = "imgFondo.png";
-    protected Texture imgFondo;
+
 
     protected final int TIEMPO_CRECER = 239;
     protected final int TIEMPO_MOVER = 59;
@@ -43,9 +43,11 @@ public class ControladorJuego {
     //un batch
     protected SpriteBatch batch;
 
-    //Imagenes splash para inicio y final (Hay que meter una imagen en assets y en el estado para el inicio del juego y otra para game over)
+    //Imagenes splash para inicio, final y fondo (Hay que meter una imagen en assets y en el estado para el inicio del juego y otra para game over)
     protected Texture imgInicial;
     protected Texture imgFinal;
+    protected Texture imgFondo;
+
 
 
     //El simulador de teclado
@@ -76,6 +78,7 @@ private ControladorJuego(int anchoReal){ //FALTA PONER ANCHOPANTALLA POR PARAMET
     batch = new SpriteBatch();
     imgInicial = new Texture(IMAGEN_INICIO);
     imgFinal = new Texture(IMAGEN_FIN);
+    imgFondo = new Texture(IMAGEN_FONDO);
     et = new EstadoTeclado(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
     anchoPantalla = anchoReal;
     controlTiempo = 0;
@@ -175,9 +178,8 @@ private void finalPartida(){
 }
 
 public void render(){
-    imgFondo = new Texture(IMAGEN_FONDO);
     batch.begin();
-    batch.draw(imgFondo,0,0,Gdx.graphics.getHeight(),Gdx.graphics.getWidth());
+    batch.draw(imgFondo,0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
     batch.end();
     switch (controladorVG){
         case INICIO: this.pantallaInicio();
