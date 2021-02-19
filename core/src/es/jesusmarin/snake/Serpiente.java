@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class Serpiente {
 
+
     /*
     * Sabemos que una serpiente es un conjunto de piezas, por lo tanto tenemos que usar la
     * clase pieza en algun momento.
@@ -43,7 +44,7 @@ public class Serpiente {
     ///////////////////////////////////////////////////////////////////////
 
     //CONSTRUCTOR/ES
-    public Serpiente(int posX, int posY, int nancho, int anchoAltoPantalla,int anchoReal,int altoReal){
+    public Serpiente(int PosX, int PosY, int nancho, int anchoAltoPantalla,int anchoReal,int altoReal){
         Pieza nuevaCabeza;
         nuevaCabeza = new Pieza(posX,posY,nancho);
 
@@ -53,8 +54,8 @@ public class Serpiente {
         this.altoReal = altoReal;
 
         direccion = Pieza.ARR;
-        this.posX = posX;
-        this.posY = posY;
+        this.posX = PosX;
+        this.posY = PosY;
         this.ancho = nancho;
         cuerpo = new ArrayList<>();
         cuerpo.add(nuevaCabeza);

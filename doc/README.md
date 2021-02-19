@@ -60,3 +60,5 @@ David R. Mejoras en el diseño del README.
 Daniel D. cambios en las clases ControladorJuego, GdxGameSnake. Finalice el apartado artistico.
 ### 21. 2021-02-18. 
 David R. Arreglado bug doble movimiento al moverse y crecer en el mismo frame.
+### 22. 2021-02-19. 
+Subimos el video demostrando que funcion en PC.

@@ -1,15 +1,19 @@
-package es.jesusmarin.snake;
+package es.jesusmarin.snake;//gpackage es.jesusmarin.snake;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import es.jesusmarin.snake.ControladorJuego;
 
 public class GdxGameSnake extends ApplicationAdapter {
 	SpriteBatch batch;
 	//Texture img;
-
+	private OrthographicCamera camera;
 	private ControladorJuego miControlador;
 
 
@@ -33,8 +37,13 @@ public class GdxGameSnake extends ApplicationAdapter {
 
 		//Ahora se que elMasChico esta en la resolucion que usare para calcular el 90%
 
-		elMasChico = (int) ((float)elMasChico*PORCENTAJE_PANTALLA_USADA);
-		Gdx.graphics.setWindowedMode(elMasChico, elMasChico);
+
+
+		
+
+			Gdx.graphics.setWindowedMode(elMasChico, elMasChico);
+
+
 
 		miControlador = ControladorJuego.getInstance(anchoPantalla/2,altoPantalla/2,elMasChico/20,elMasChico,anchoPantalla,altoPantalla);
 
