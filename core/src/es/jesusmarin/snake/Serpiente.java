@@ -33,7 +33,7 @@ public class Serpiente {
     protected ArrayList<Pieza> cuerpo;
     protected int direccion;
 
-    protected int posX,posY,ancho,anchoReal,altoReal,anchoAltoPantalla;
+    protected int posX,posY,ancho,anchoAltoPantalla;
 
     //private Sound steps;
 
@@ -52,16 +52,11 @@ public class Serpiente {
     ///////////////////////////////////////////////////////////////////////
 
     //CONSTRUCTOR/ES
-    public Serpiente(int PosX, int PosY, int nancho, int elMasChico,int anchoReal,int altoReal){
+    public Serpiente(int PosX, int PosY, int nancho, int elMasChico){
         Pieza nuevaCabeza;
         nuevaCabeza = new Pieza(PosX,PosY,nancho);
 
         this.anchoAltoPantalla = elMasChico;
-
-        this.anchoReal = anchoReal;
-        this.altoReal = altoReal;
-
-        //steps = Gdx.audio.newSound(Gdx.files.internal(SONIDO_MOVERSE));
 
         direccion = Pieza.DER;
         this.posX = PosX;
@@ -70,7 +65,6 @@ public class Serpiente {
         cuerpo = new ArrayList<>();
         cuerpo.add(nuevaCabeza);
 
-        //imgSerpiente= new Texture(file_serpiente);
     }
     public Serpiente(Serpiente antigua){
         Pieza nuevaCabeza;
@@ -80,10 +74,6 @@ public class Serpiente {
         ancho = antigua.getAncho();
 
         anchoAltoPantalla=antigua.getAnchoAltoPantalla();
-        anchoReal=antigua.getAnchoReal();
-        altoReal=antigua.getAltoReal();
-
-        //steps = Gdx.audio.newSound(Gdx.files.internal(SONIDO_MOVERSE));
 
 
         nuevaCabeza = new Pieza(posX,posY,ancho);
@@ -112,17 +102,8 @@ public class Serpiente {
         return anchoAltoPantalla;
     }
 
-    public int getAnchoReal() {
-        return anchoReal;
-    }
-
-    public int getAltoReal() {
-        return altoReal;
-    }
-
     public void moverse(){
         this.crecer();
-        //steps.play();
 
         cuerpo.remove(cuerpo.size()-1);
     }
@@ -197,9 +178,10 @@ public class Serpiente {
 
          */
 
+        //multiplicamos elMasChico por el 100% de la pantalla menos el porcentaje equivalente al tamaño de la pieza (100/20)=0.05==0.95;
         limiteIzq = 0;
         limiteAba = anchoAltoPantalla*0.95f;
-        limiteDer = (anchoAltoPantalla*0.95f);
+        limiteDer = anchoAltoPantalla*0.95f;
         limiteArr = 0;
         return (cabeza.getPosX()<limiteIzq || cabeza.getPosX()>limiteDer ||
                 cabeza.getPosY()<limiteArr || cabeza.getPosY()>limiteAba);

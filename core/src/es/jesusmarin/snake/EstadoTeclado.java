@@ -66,4 +66,6 @@ public class EstadoTeclado {
             teclaDer = true;
         }
     }
+
+
 }

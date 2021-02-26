@@ -64,4 +64,5 @@ David R. Arreglado bug doble movimiento al moverse y crecer en el mismo frame.
 Subimos el video demostrando que funcion en PC.
 ### 23. 2021-02-26. 
 David R y Dani D. Añadimos música y efectos de sonido, fix de bug al colisionar fuera de la pantalla, depuración de código.
-
+### 24. 2021-02-26. 
+David R y Dani D. Intento de arreglar bug de dirección y depuración de código. Eliminación de variables duplicadas y redundancia.

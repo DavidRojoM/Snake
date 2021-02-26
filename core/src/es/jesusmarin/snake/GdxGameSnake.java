@@ -18,7 +18,7 @@ public class GdxGameSnake extends ApplicationAdapter {
 
 
 
-	private static final float PORCENTAJE_PANTALLA_USADA = 0.9f;
+	private static final float PORCENTAJE_PANTALLA_USADA = 0.90f;
 	
 	@Override
 	public void create () {
@@ -28,24 +28,20 @@ public class GdxGameSnake extends ApplicationAdapter {
 
 		//Aqui tengo que averiguar que ancho de pantalla tengo, que alto, que forma tendran las casillas donde poner las piezas de la serpiente,etc..r
 
-		int anchoPantalla,altoPantalla,elMasChico;
 
-		anchoPantalla=Gdx.graphics.getWidth();
-		altoPantalla=Gdx.graphics.getHeight();
 
-		elMasChico = Math.min(anchoPantalla,altoPantalla);
+
+		int elMasChico = Math.min(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+
+		//elMasChico *=PORCENTAJE_PANTALLA_USADA;
 
 		//Ahora se que elMasChico esta en la resolucion que usare para calcular el 90%
 
 
-
-		
-
 		Gdx.graphics.setWindowedMode(elMasChico, elMasChico);
 
 
-
-		miControlador = ControladorJuego.getInstance(elMasChico/2,elMasChico/2,elMasChico/20,elMasChico,anchoPantalla,altoPantalla);
+		miControlador = ControladorJuego.getInstance(elMasChico/2,elMasChico/2,elMasChico/20,elMasChico);
 
 	}
 

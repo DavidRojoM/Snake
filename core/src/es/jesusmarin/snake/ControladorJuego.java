@@ -81,7 +81,7 @@ public class ControladorJuego {
     //Contador
     protected int controlTiempo;
 
-    protected int anchoPantalla,altoPantalla;
+    protected float elMasChico;
     /////////////////////////////////////////////////////////////////////////////////////
     //
     //COMPORTAMIENTOS
@@ -102,25 +102,30 @@ private ControladorJuego(int elMasChico){ //FALTA PONER ANCHOPANTALLA POR PARAME
     steps = Gdx.audio.newSound(Gdx.files.internal(SONIDO_MOVERSE));
     powerUp = Gdx.audio.newSound(Gdx.files.internal(SONIDO_CRECER));
 
-    et = new EstadoTeclado(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
-    anchoPantalla = elMasChico;
+    et = new EstadoTeclado(elMasChico,elMasChico);
+    this.elMasChico = elMasChico;
     controlTiempo = 0;
 
 
 }
 
-public static ControladorJuego getInstance(int posXinicial,int posYinicial,int ancho ,int elMasChico, int anchoReal,int altoReal){
+public static ControladorJuego getInstance(int posXinicial,int posYinicial,int ancho ,int elMasChico){
     if (ControladorJuego.miControlador==null){
         miControlador = new ControladorJuego(elMasChico);
-        miControlador.setSnake(new Serpiente(posXinicial,posYinicial,ancho,elMasChico,anchoReal,altoReal));
+        miControlador.setSnake(new Serpiente(posXinicial,posYinicial,ancho,elMasChico));
     }
     return ControladorJuego.miControlador;
 }
-private void pantallaInicio(){
+
+    public float getElMasChico() {
+        return elMasChico;
+    }
+
+    private void pantallaInicio(){
     batch.begin();
     //AQUI HABRIA QUE PINTAR EL FONDO
 
-    batch.draw(imgInicial,0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+    batch.draw(imgInicial,0,0,getElMasChico(),getElMasChico());
     inicio.play();
 
     batch.end();
@@ -200,7 +205,7 @@ private void finalPartida(){
     batch.begin();
     //AQUI ES PROBABLE QUE HAYA QUE PINTAR EL FONDO
 
-    batch.draw(imgFinal,0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+    batch.draw(imgFinal,0,0,getElMasChico(),getElMasChico());
     batch.end();
     fin.play();
 
@@ -215,7 +220,7 @@ private void finalPartida(){
 
 public void render(){
     batch.begin();
-    batch.draw(imgFondo,0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+    batch.draw(imgFondo,0,0,getElMasChico(),getElMasChico());
     batch.end();
     switch (controladorVG){
         case INICIO: this.pantallaInicio();
