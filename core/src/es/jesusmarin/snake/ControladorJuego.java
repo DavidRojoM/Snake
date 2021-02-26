@@ -99,6 +99,7 @@ private ControladorJuego(int elMasChico){ //FALTA PONER ANCHOPANTALLA POR PARAME
     partida = Gdx.audio.newMusic(Gdx.files.internal(SONIDO_PARTIDA));
     partida.setLooping(true);
     fin = Gdx.audio.newMusic(Gdx.files.internal(SONIDO_FIN));
+    fin.setVolume(0.4f);
     steps = Gdx.audio.newSound(Gdx.files.internal(SONIDO_MOVERSE));
     powerUp = Gdx.audio.newSound(Gdx.files.internal(SONIDO_CRECER));
 
@@ -137,7 +138,7 @@ public static ControladorJuego getInstance(int posXinicial,int posYinicial,int a
     if (recienTocado){
 
         this.iniciaPartida();
-        inicio.dispose();
+        inicio.stop();
     }
 }
 private void controlaEstadoJugando(){
@@ -184,7 +185,7 @@ private void controlaEstadoJugando(){
     //Me habre chocado?
     if (snake.hasMuerto()){
         controladorVG = VideoJuego.FINALIZADO;
-        partida.dispose();
+        partida.stop();
 
     }
 
@@ -214,7 +215,7 @@ private void finalPartida(){
 
     if (recienTocado){
         this.iniciaPartida();
-        fin.dispose();
+        fin.stop();
     }
 }
 
