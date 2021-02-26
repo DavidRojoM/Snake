@@ -1,6 +1,7 @@
 package es.jesusmarin.snake;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -25,11 +26,18 @@ public class Serpiente {
     //ESTADO
     //
     ///////////////////////////////////////////////////////////////////////
+    //CONSTANTES
+    //protected final static String SONIDO_MOVERSE = "Sounds/steps.mp3";
+
 
     protected ArrayList<Pieza> cuerpo;
     protected int direccion;
 
     protected int posX,posY,ancho,anchoReal,altoReal,anchoAltoPantalla;
+
+    //private Sound steps;
+
+
 
     //private Pieza piezaSerpiente;
     //protected Texture imgSerpiente;
@@ -44,16 +52,18 @@ public class Serpiente {
     ///////////////////////////////////////////////////////////////////////
 
     //CONSTRUCTOR/ES
-    public Serpiente(int PosX, int PosY, int nancho, int anchoAltoPantalla,int anchoReal,int altoReal){
+    public Serpiente(int PosX, int PosY, int nancho, int elMasChico,int anchoReal,int altoReal){
         Pieza nuevaCabeza;
-        nuevaCabeza = new Pieza(posX,posY,nancho);
+        nuevaCabeza = new Pieza(PosX,PosY,nancho);
 
-        this.anchoAltoPantalla = anchoAltoPantalla;
+        this.anchoAltoPantalla = elMasChico;
 
         this.anchoReal = anchoReal;
         this.altoReal = altoReal;
 
-        direccion = Pieza.ARR;
+        //steps = Gdx.audio.newSound(Gdx.files.internal(SONIDO_MOVERSE));
+
+        direccion = Pieza.DER;
         this.posX = PosX;
         this.posY = PosY;
         this.ancho = nancho;
@@ -73,9 +83,12 @@ public class Serpiente {
         anchoReal=antigua.getAnchoReal();
         altoReal=antigua.getAltoReal();
 
+        //steps = Gdx.audio.newSound(Gdx.files.internal(SONIDO_MOVERSE));
+
+
         nuevaCabeza = new Pieza(posX,posY,ancho);
 
-        direccion = Pieza.ARR;// Aqui probablemente se coloca un parámetro con la dirección actual de la serpiente
+        direccion = Pieza.DER;// Aqui probablemente se coloca un parámetro con la dirección actual de la serpiente
 
         cuerpo = new ArrayList<>();
         cuerpo.add(nuevaCabeza);
@@ -109,6 +122,7 @@ public class Serpiente {
 
     public void moverse(){
         this.crecer();
+        //steps.play();
 
         cuerpo.remove(cuerpo.size()-1);
     }
@@ -184,8 +198,8 @@ public class Serpiente {
          */
 
         limiteIzq = 0;
-        limiteAba = Gdx.graphics.getHeight();
-        limiteDer = Gdx.graphics.getWidth();
+        limiteAba = anchoAltoPantalla*0.95f;
+        limiteDer = (anchoAltoPantalla*0.95f);
         limiteArr = 0;
         return (cabeza.getPosX()<limiteIzq || cabeza.getPosX()>limiteDer ||
                 cabeza.getPosY()<limiteArr || cabeza.getPosY()>limiteAba);

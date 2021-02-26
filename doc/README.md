@@ -62,3 +62,6 @@ Daniel D. cambios en las clases ControladorJuego, GdxGameSnake. Finalice el apar
 David R. Arreglado bug doble movimiento al moverse y crecer en el mismo frame.
 ### 22. 2021-02-19. 
 Subimos el video demostrando que funcion en PC.
+### 23. 2021-02-26. 
+David R y Dani D. Añadimos música y efectos de sonido, fix de bug al colisionar fuera de la pantalla, depuración de código.
+

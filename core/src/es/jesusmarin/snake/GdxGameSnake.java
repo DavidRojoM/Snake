@@ -41,21 +41,18 @@ public class GdxGameSnake extends ApplicationAdapter {
 
 		
 
-			Gdx.graphics.setWindowedMode(elMasChico, elMasChico);
+		Gdx.graphics.setWindowedMode(elMasChico, elMasChico);
 
 
 
-		miControlador = ControladorJuego.getInstance(anchoPantalla/2,altoPantalla/2,elMasChico/20,elMasChico,anchoPantalla,altoPantalla);
+		miControlador = ControladorJuego.getInstance(elMasChico/2,elMasChico/2,elMasChico/20,elMasChico,anchoPantalla,altoPantalla);
 
-		//img = new Texture("badlogic.jpg");
 	}
 
 
 
 	@Override
 	public void render () {
-
-
 
 
 		Gdx.gl.glClearColor(46/255f, 146/255f, 59/255f, 1);

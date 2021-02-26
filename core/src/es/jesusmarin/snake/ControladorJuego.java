@@ -1,6 +1,8 @@
 package es.jesusmarin.snake;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -24,6 +26,12 @@ public class ControladorJuego {
     protected final static String IMAGEN_INICIO = "imgInicio.png";
     protected final static String IMAGEN_FIN = "imgFin.png";
     protected final static String IMAGEN_FONDO = "imgFondo.png";
+    protected final static String SONIDO_INICIO = "Sounds/cancionInicio.mp3";
+    protected final static String SONIDO_PARTIDA = "Sounds/cancionPartida.mp3";
+    protected final static String SONIDO_FIN = "Sounds/cancionFin.mp3";
+    protected final static String SONIDO_MOVERSE = "Sounds/steps.mp3";
+    protected final static String SONIDO_CRECER = "Sounds/sonidoCrecer.mp3";
+
 
 
     protected final int TIEMPO_CRECER = 120;
@@ -36,6 +44,12 @@ public class ControladorJuego {
 
 
     //Objetos que controla el controlador
+    //MUSICA
+    private Music inicio;
+    private Music partida;
+    private Music fin;
+    private Sound steps;
+    private Sound powerUp;
 
     //Una serpiente
     protected Serpiente snake;
@@ -73,22 +87,32 @@ public class ControladorJuego {
     //COMPORTAMIENTOS
     //
     /////////////////////////////////////////////////////////////////////////////////////
-private ControladorJuego(int anchoReal){ //FALTA PONER ANCHOPANTALLA POR PARAMETRO
+private ControladorJuego(int elMasChico){ //FALTA PONER ANCHOPANTALLA POR PARAMETRO
     controladorVG = VideoJuego.INICIO;
     batch = new SpriteBatch();
+
     imgInicial = new Texture(IMAGEN_INICIO);
     imgFinal = new Texture(IMAGEN_FIN);
     imgFondo = new Texture(IMAGEN_FONDO);
+
+    inicio = Gdx.audio.newMusic(Gdx.files.internal(SONIDO_INICIO));
+    partida = Gdx.audio.newMusic(Gdx.files.internal(SONIDO_PARTIDA));
+    partida.setLooping(true);
+    fin = Gdx.audio.newMusic(Gdx.files.internal(SONIDO_FIN));
+    steps = Gdx.audio.newSound(Gdx.files.internal(SONIDO_MOVERSE));
+    powerUp = Gdx.audio.newSound(Gdx.files.internal(SONIDO_CRECER));
+
     et = new EstadoTeclado(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
-    anchoPantalla = anchoReal;
+    anchoPantalla = elMasChico;
     controlTiempo = 0;
+
 
 }
 
-public static ControladorJuego getInstance(int posXinicial,int posYinicial,int ancho ,int altoAnchoPantalla, int anchoReal,int altoReal){
+public static ControladorJuego getInstance(int posXinicial,int posYinicial,int ancho ,int elMasChico, int anchoReal,int altoReal){
     if (ControladorJuego.miControlador==null){
-        miControlador = new ControladorJuego(altoAnchoPantalla);
-        miControlador.setSnake(new Serpiente(posXinicial,posYinicial,ancho,altoAnchoPantalla,anchoReal,altoReal));
+        miControlador = new ControladorJuego(elMasChico);
+        miControlador.setSnake(new Serpiente(posXinicial,posYinicial,ancho,elMasChico,anchoReal,altoReal));
     }
     return ControladorJuego.miControlador;
 }
@@ -97,6 +121,7 @@ private void pantallaInicio(){
     //AQUI HABRIA QUE PINTAR EL FONDO
 
     batch.draw(imgInicial,0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+    inicio.play();
 
     batch.end();
 
@@ -107,6 +132,7 @@ private void pantallaInicio(){
     if (recienTocado){
 
         this.iniciaPartida();
+        inicio.dispose();
     }
 }
 private void controlaEstadoJugando(){
@@ -140,9 +166,11 @@ private void controlaEstadoJugando(){
 
     if (controlTiempo==TIEMPO_CRECER){
         snake.crecer();
+        powerUp.play();
         controlTiempo=1;
     }else if (controlTiempo % TIEMPO_MOVER==0){
         snake.moverse();
+        steps.play();
         controlTiempo++;
     } else{
         controlTiempo++;
@@ -151,6 +179,7 @@ private void controlaEstadoJugando(){
     //Me habre chocado?
     if (snake.hasMuerto()){
         controladorVG = VideoJuego.FINALIZADO;
+        partida.dispose();
 
     }
 
@@ -164,6 +193,7 @@ private void iniciaPartida(){
     controladorVG = VideoJuego.JUGANDO;
     snake.dispose();
     snake = nuevaSer;
+    partida.play();
 }
 private void finalPartida(){
 
@@ -172,12 +202,14 @@ private void finalPartida(){
 
     batch.draw(imgFinal,0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
     batch.end();
+    fin.play();
 
     boolean recienTocado;
     recienTocado = Gdx.input.justTouched();
 
     if (recienTocado){
         this.iniciaPartida();
+        fin.dispose();
     }
 }
 
