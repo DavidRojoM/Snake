@@ -70,3 +70,5 @@ David R y Dani D. Intento de arreglar bug de dirección y depuración de código
 David R. Subido video funcionando en Android en vertical y horizontal. Corrección bug no reproducir música de fin despues de la primera vez.
 ### 26. 2021-02-27. 
 Javier S. Subir Diagrama de clases UML completo con ayuda del equipo en las relaciones de clases.
+### 27. 2021-02-27. 
+Miguel L., Javier S., David R., Dani D. Actualización diagrama de objetos.
