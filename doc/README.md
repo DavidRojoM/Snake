@@ -68,3 +68,5 @@ David R y Dani D. Añadimos música y efectos de sonido, fix de bug al colisiona
 David R y Dani D. Intento de arreglar bug de dirección y depuración de código. Eliminación de variables duplicadas y redundancia.
 ### 25. 2021-02-27. 
 David R. Subido video funcionando en Android en vertical y horizontal. Corrección bug no reproducir música de fin despues de la primera vez.
+### 26. 2021-02-27. 
+Javier S. Subir Diagrama de clases UML completo con ayuda del equipo en las relaciones de clases.
