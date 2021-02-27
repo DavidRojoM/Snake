@@ -26,23 +26,12 @@ public class Serpiente {
     //ESTADO
     //
     ///////////////////////////////////////////////////////////////////////
-    //CONSTANTES
-    //protected final static String SONIDO_MOVERSE = "Sounds/steps.mp3";
 
 
     protected ArrayList<Pieza> cuerpo;
     protected int direccion;
 
     protected int posX,posY,ancho,anchoAltoPantalla;
-
-    //private Sound steps;
-
-
-
-    //private Pieza piezaSerpiente;
-    //protected Texture imgSerpiente;
-    //protected String file_serpiente = "serpiente.png";
-
 
 
     /////////////////////////////////////////////////////////////////////////
@@ -132,11 +121,13 @@ public class Serpiente {
             unaPieza.dispose();
         }
     }
+
     //Comportamiento hasMuerto
     public boolean hasMuerto(){
 
         return (cabezaChocaConCuerpo() || cabezaChocaConParedes());
     }
+
     //Testear el choque de la serpiente con su cuerpo
     private boolean cabezaChocaConCuerpo(){
         Pieza cabezaSerpiente = cuerpo.get(0);
@@ -150,39 +141,20 @@ public class Serpiente {
         }
         return false;
     }
+
     private boolean cabezaChocaConParedes(){
-        //si he chocado con la izquierda true
-        //si no he chocado con la izquierda false
-        //si he chocado arriba true
-        //si no he chocado arriba false
-        //si no, false
 
-        /*Pieza cabezaSerpiente = cuerpo.get(0);
-        if (cabezaSerpiente.getPosX()<0) return false;
-        else if (cabezaSerpiente.getPosY()<0) return false;
-        else if (cabezaSerpiente.getPosX()>anchoAltoPantalla) return false;
-        else if (cabezaSerpiente.getPosY()>anchoAltoPantalla) return false;
-        else return true;
-
-         */
-        //PREGUNTAR A ANDRES
         float limiteIzq,limiteDer;
         float limiteArr,limiteAba;
 
         Pieza cabeza= cuerpo.get(0);
-
-        /*limiteIzq = (anchoReal-anchoAltoPantalla)/2;
-        limiteDer = limiteIzq + anchoAltoPantalla;
-        limiteArr = (altoReal-anchoAltoPantalla)/2;
-        limiteAba = limiteArr + anchoAltoPantalla;
-
-         */
 
         //multiplicamos elMasChico por el 100% de la pantalla menos el porcentaje equivalente al tamaño de la pieza (100/20)=0.05==0.95;
         limiteIzq = 0;
         limiteAba = anchoAltoPantalla*0.95f;
         limiteDer = anchoAltoPantalla*0.95f;
         limiteArr = 0;
+
         return (cabeza.getPosX()<limiteIzq || cabeza.getPosX()>limiteDer ||
                 cabeza.getPosY()<limiteArr || cabeza.getPosY()>limiteAba);
 

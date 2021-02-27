@@ -13,7 +13,6 @@ public class EstadoTeclado {
     private boolean teclaIzq;
     private boolean teclaDer;
 
-    private int alto,ancho;//alto y ancho de la pantalla, para simular el tdclado
     private int limiteAlturaZonaArriba;
     private int limiteAnchoZonaLateral;
 
@@ -28,8 +27,6 @@ public class EstadoTeclado {
         teclaAbajo = false;
         teclaIzq = false;
         teclaDer = false;
-        this.ancho = ancho;
-        this.alto = alto;
         limiteAnchoZonaLateral = ancho/2;
         limiteAlturaZonaArriba = alto/2;
     }

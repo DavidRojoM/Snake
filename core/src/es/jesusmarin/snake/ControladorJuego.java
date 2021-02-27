@@ -26,6 +26,7 @@ public class ControladorJuego {
     protected final static String IMAGEN_INICIO = "imgInicio.png";
     protected final static String IMAGEN_FIN = "imgFin.png";
     protected final static String IMAGEN_FONDO = "imgFondo.png";
+
     protected final static String SONIDO_INICIO = "Sounds/cancionInicio.mp3";
     protected final static String SONIDO_PARTIDA = "Sounds/cancionPartida.mp3";
     protected final static String SONIDO_FIN = "Sounds/cancionFin.mp3";
@@ -34,8 +35,8 @@ public class ControladorJuego {
 
 
 
-    protected final int TIEMPO_CRECER = 120;
-    protected final int TIEMPO_MOVER = 30;
+    protected final int TIEMPO_CRECER = 120;//120
+    protected final int TIEMPO_MOVER = 30;//30
 
 
     //Esto es un truco que pone un objeto ControladorJuego en la memoria ram en el espacio asignado a la clase ControladorJuego
@@ -44,7 +45,7 @@ public class ControladorJuego {
 
 
     //Objetos que controla el controlador
-    //MUSICA
+    //SONIDOS
     private Music inicio;
     private Music partida;
     private Music fin;
@@ -65,16 +66,15 @@ public class ControladorJuego {
 
 
     //El simulador de teclado
-
     EstadoTeclado et;
 
     //Enumeracion para la "maquina de estados" del controlador
-
     enum VideoJuego {
             INICIO,
             JUGANDO,
             FINALIZADO
     }
+
     //Estado del controlador
     protected VideoJuego controladorVG;
 
@@ -148,27 +148,14 @@ private void controlaEstadoJugando(){
     recienTocado = Gdx.input.justTouched();
     if (recienTocado){
 
-        //tendre que:
-        //1º Ver donde he pinchado
-        //necesito la posicion x y la posicion y
         int posNuevaX,posNuevaY;
         posNuevaX=Gdx.input.getX();
         posNuevaY = Gdx.input.getY();
 
-
-        //2º le doy esos valores a "et"
-
         et.simulaTeclado(posNuevaX,posNuevaY);
-        //3º le pregunto a "et" que teclas estan pulsadas y dependiendo de las dos reclas pulsadas y de la direccion de la serpiente, entonces le pido a la serpiente que cambie adecuadamente
 
         snake.cambiaDireccion(et);
-
     }
-
-    //si tengo que mover la serpiente o crecer la serpiente, la muevo o la crezco
-
-    //CREO QUE EL PROBLEMA DE MOVERSE Y CRECER A LA VEZ ESTA AQUI (SI CRECES NO TE MUEVES)
-
 
     if (controlTiempo==TIEMPO_CRECER){
         snake.crecer();
@@ -182,7 +169,6 @@ private void controlaEstadoJugando(){
         controlTiempo++;
 }
 
-    //Me habre chocado?
     if (snake.hasMuerto()){
         controladorVG = VideoJuego.FINALIZADO;
         partida.stop();
@@ -204,8 +190,6 @@ private void iniciaPartida(){
 private void finalPartida(){
 
     batch.begin();
-    //AQUI ES PROBABLE QUE HAYA QUE PINTAR EL FONDO
-
     batch.draw(imgFinal,0,0,getElMasChico(),getElMasChico());
     batch.end();
     fin.play();

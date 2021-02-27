@@ -72,3 +72,5 @@ David R. Subido video funcionando en Android en vertical y horizontal. Correcci�
 Javier S. Subir Diagrama de clases UML completo con ayuda del equipo en las relaciones de clases.
 ### 27. 2021-02-27. 
 Miguel L., Javier S., David R., Dani D. Actualización diagrama de objetos.
+### 27. 2021-02-27. 
+David R. Limpieza final de código. Listo para entregar.

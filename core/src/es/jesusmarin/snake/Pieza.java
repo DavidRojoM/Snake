@@ -27,11 +27,6 @@ public class Pieza {
 
     protected Texture textura;
     protected static final String MIIMAGEN = "SpriteSnake.png";
-    /*
-    protected static final String MIIMAGENGRANDE = "SpriteSnakeG.jpg";
-    protected static final String MIIMAGENPEQ = "SpriteSnakeP.jpg";
-
-     */
 
 
 
@@ -69,8 +64,8 @@ public class Pieza {
     public int getAncho() {
         return ancho;
     }
-//PINTARSE(usará la textura que hay en el estado y necesita un escenario -> batch)
 
+//PINTARSE(usará la textura que hay en el estado y necesita un escenario -> batch)
     public void render(SpriteBatch miSB){
         miSB.begin();
         miSB.draw(this.textura,this.posX,this.posY,this.ancho,this.ancho);
@@ -78,7 +73,6 @@ public class Pieza {
     }
 
     //MOVERSE (afectará a posX y posY, pero nunca a las 2 a la vez)
-
     public void moverse(int direccion){
         switch (direccion){
             case DER:posX += ancho; //DER
@@ -104,17 +98,9 @@ public class Pieza {
         boolean colisionX, colisionY,resultado; //colisionRangoX, colisionRangoY;
         colisionX = (posX == p.getPosX());
         colisionY = (posY == p.getPosY());
-        /*
-        colisionRangoX = posX<0 || posX> Gdx.graphics.getWidth();
-        colisionRangoY = posY<0 || posY> Gdx.graphics.getHeight();
 
-         */
         resultado = (colisionX && colisionY);// || (colisionRangoX || colisionRangoY);
+
         return resultado;
     }
-
-    //COPIATE
-
-
-
 }
