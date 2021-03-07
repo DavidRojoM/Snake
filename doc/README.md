@@ -2,17 +2,54 @@
 
 ## 🔴Integrantes del grupo.
 
+* Daniel Delgado
+* David Rojo
+* Alejandro Gómez
+* Javier Sánchez
+* Miguel Angel López
+* Daniel Mulero
+
+## 🔴Reparto de tareas.
+
+* Daniel Delgado
+  * Diseño gráfico
+  * Búsqueda de efectos de sonido
+  * Tareas de programación
+  * Corrección de errores
+  * Diagrama de objetos
+  * Investigación en documentación externa.
+* David Rojo
+  * Coordinación de grupo
+  * Creación de repositorio
+  * Tareas de programación
+  * Corrección de errores
+  * Diagrama de objetos
+  * Investigación en documentación externa
+  * Realización y mantenimiento del README.md.
+* Alejandro Gómez
+  * Diseño de diagramas de estado.
+* Javier Sánchez
+  * Diseño de diagrama UML
+  * Diagrama de casos de uso
+  * Diagrama de objetos.
+* Miguel Angel López
+  * Diagrama de actividad
+  * Diagrama de objetos.
+* Daniel Mulero
+  * Diagrama de actividad
+  * Diagrama de objetos.
+
+## 🔴Propuesta de diseño.
+
 <ul>
-<li>Daniel Delgado</li>
-<li>David Rojo</li>
-<li>Alejandro Gómez</li>
-<li>Javier Sánchez</li>
-<li>Miguel Angel López</li>
-<li>Daniel Mulero</li>
+  <li>El aspecto gráfico del juego se inspirará en los pixelart de los juegos retro</li>
+  <li>El fondo de pantalla será un pixelart verde, el cual imitará a un césped</li>
+  <li>La serpiente será de color rojo para aumentar el contraste con el fondo</li>
+  <li>La temática de los sonidos tambien es de estilo retro</li>
+  <li>Hemos decidido que el sonido que se reproduce cada vez que la serpiente se mueva sea discreto para no molestar al jugador</li>
 </ul>
 
 ## 🔴Actualizaciones.
-
 
 ### 1. 12-01-2021.
 Inicializamos el repositorio en GitHub.
