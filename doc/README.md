@@ -98,7 +98,7 @@ Daniel D. cambios en las clases ControladorJuego, GdxGameSnake. Finalice el apar
 ### 21. 2021-02-18. 
 David R. Arreglado bug doble movimiento al moverse y crecer en el mismo frame.
 ### 22. 2021-02-19. 
-Subimos el video demostrando que funcion en PC.
+Subimos el video demostrando que funciona en PC.
 ### 23. 2021-02-26. 
 David R y Dani D. Añadimos música y efectos de sonido, fix de bug al colisionar fuera de la pantalla, depuración de código.
 ### 24. 2021-02-26. 
@@ -113,3 +113,5 @@ Miguel L., Javier S., David R., Dani D. Actualización diagrama de objetos.
 David R. Limpieza final de código. Listo para entregar.
 ### 29. 2021-03-08.
 Javier S. Correción de errores del diagrama de casos de uso.
+### 30. 2021-03-08.
+Alejandro G. y Javier S. Creacion del diagrama de estados. Diagrama Inicio-Javier, Diagrama Durante Partida-Javier y Alejandro, Diagrama Fin-Alejandro
