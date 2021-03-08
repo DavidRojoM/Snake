@@ -111,3 +111,5 @@ Javier S. Subir Diagrama de clases UML completo con ayuda del equipo en las rela
 Miguel L., Javier S., David R., Dani D. Actualización diagrama de objetos.
 ### 28. 2021-02-27. 
 David R. Limpieza final de código. Listo para entregar.
+### 29. 2021-03-08.
+Javier S. Correción de errores del diagrama de casos de uso.
