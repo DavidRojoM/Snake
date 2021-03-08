@@ -115,3 +115,5 @@ David R. Limpieza final de código. Listo para entregar.
 Javier S. Correción de errores del diagrama de casos de uso.
 ### 30. 2021-03-08.
 Alejandro G. y Javier S. Creacion del diagrama de estados. Diagrama Inicio-Javier, Diagrama Durante Partida-Javier y Alejandro, Diagrama Fin-Alejandro
+###31. 2021-03-08.
+Danielm. y Miguel L. Creacion del diagrama de flujo.
