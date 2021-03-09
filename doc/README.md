@@ -116,7 +116,7 @@ Subimos fondo1.jpg - **David Rojo y Dani Delgado**
 * Equipo B
 	* Trabajo semana anterior:
 		* - [ ] Plantear clase EstadoTeclado.
-		* - [x] Conseguir resolución más pequeña de la pantalla  - David Rojo y Daniel Delgado.
+		* - [x] Conseguir resolución más pequeña de la pantalla  - **David Rojo y Daniel Delgado.**
 	* - [x] Implementar clase Controlador. - **David Rojo y Daniel Delgado.**
 	* - [x] Arreglar constructor copia de la clase Pieza. - **David Rojo y Daniel Delgado.**
 	* - [x] Mejorar constructor Serpiente - **David Rojo y Daniel Delgado.**
@@ -155,8 +155,7 @@ Subimos fondo1.jpg - **David Rojo y Dani Delgado**
 
 ## <span style="color:#fc038c"> 2021-02-13 TAREAS DE ESTA SEMANA:</span>
 
-* Equipo A
-	* 
+
 * Equipo B
 	* Trabajo semana anterior:
 		* - [x] Arreglar métodos clase ControladorJuego. - **David Rojo y Daniel Delgado.**
@@ -232,8 +231,6 @@ Daniel M. y Miguel L. Creacion del diagrama de flujo.
 
 ## <span style="color:#fc038c"> 2021-03-08 TAREAS DE ESTA SEMANA:</span>
 
-* Equipo A
-	* 
 * Equipo B
 	* Trabajo semana anterior:
 		* - [ ] Arreglar bug de dirección al pulsar en la misma dirección.
