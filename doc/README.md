@@ -48,13 +48,15 @@
   <li>La temática de los sonidos tambien es de estilo retro</li>
   <li>Hemos decidido que el sonido que se reproduce cada vez que la serpiente se mueva sea discreto para no molestar al jugador</li>
 </ul>
+
 * * *
+
 ## 🔴Actualizaciones.
 
 ### 2021-01-12.
 * - [x] Inicializar repositorio en GitHub.
 
-### 3. 2021-01-13. 
+### 2021-01-13. 
 * Plantear clases:
  * - [x] Fondo - **David Rojo y Dani Delgado**
  * - [x] Pieza - **David Rojo y Dani Delgado**
@@ -237,3 +239,6 @@ Daniel M. y Miguel L. Creacion del diagrama de flujo.
 	* - [x] Arreglar readme. - **David Rojo y Daniel Delgado.**
 	* - [x] Mostrar el reparto de tareas. - **David Rojo y Daniel Delgado.**
 	* - [x] Mostrar propuesta de comienzo y final de partida. - **David Rojo y Daniel Delgado.**
+
+### 09-03-2021
+David R, Dani D. Arreglar readme de acuerdo a los requisitos del profesor.
