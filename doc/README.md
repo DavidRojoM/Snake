@@ -240,5 +240,5 @@ Daniel M. y Miguel L. Creacion del diagrama de flujo.
 	* - [x] Mostrar el reparto de tareas. - **David Rojo y Daniel Delgado.**
 	* - [x] Mostrar propuesta de comienzo y final de partida. - **David Rojo y Daniel Delgado.**
 
-### 09-03-2021
+### 2021-03-09.
 David R, Dani D. Arreglar readme de acuerdo a los requisitos del profesor.
