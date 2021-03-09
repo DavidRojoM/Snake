@@ -11,23 +11,59 @@ public class GdxGameSnake extends ApplicationAdapter {
 
 	private ControladorJuego miControlador;
 
-	//private static final float PORCENTAJE_PANTALLA_USADA = 0.90f;
+	private static final float PORCENTAJE_PANTALLA_USADA = 0.90f;
 
+	int elMasChico,anchoReal,altoReal;
+
+	public int getElMasChico() {
+		return elMasChico;
+	}
+
+	public void setElMasChico(int elMasChico) {
+		this.elMasChico = elMasChico;
+	}
+
+	public int getAnchoReal() {
+		return anchoReal;
+	}
+
+	public void setAnchoReal(int anchoReal) {
+		this.anchoReal = anchoReal;
+	}
+
+	public int getAltoReal() {
+		return altoReal;
+	}
+
+	public void setAltoReal(int altoReal) {
+		this.altoReal = altoReal;
+	}
 
 	@Override
 	public void create () {
 
-		int elMasChico = Math.min(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+		setAnchoReal(Gdx.graphics.getWidth());
+		setAltoReal(Gdx.graphics.getHeight());
+
+		int resuLittle = Math.min(getAnchoReal(),getAltoReal());
+
+		int resu90 = (int) (resuLittle*PORCENTAJE_PANTALLA_USADA);
+
+		int borde=Math.abs(resu90-resuLittle)/2;
+
+
+
+
 
 		//elMasChico *=PORCENTAJE_PANTALLA_USADA;
 
 		//Ahora se que elMasChico esta en la resolucion que usare para calcular el 90%
 
 
-		Gdx.graphics.setWindowedMode(elMasChico, elMasChico);
+		Gdx.graphics.setWindowedMode(resuLittle, resuLittle);
 
 
-		miControlador = ControladorJuego.getInstance(elMasChico/2,elMasChico/2,elMasChico/20,elMasChico);
+		miControlador = ControladorJuego.getInstance(resu90/2,resu90/2,resu90/20,resu90,getAnchoReal(),getAltoReal(),borde,resuLittle);
 
 	}
 
@@ -37,7 +73,7 @@ public class GdxGameSnake extends ApplicationAdapter {
 	public void render () {
 
 
-		Gdx.gl.glClearColor(46/255f, 146/255f, 59/255f, 1);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 

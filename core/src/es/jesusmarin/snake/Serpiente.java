@@ -31,7 +31,7 @@ public class Serpiente {
     protected ArrayList<Pieza> cuerpo;
     protected int direccion;
 
-    protected int posX,posY,ancho,anchoAltoPantalla;
+    protected int posX,posY,ancho,anchoAltoPantalla,borde,resuLittle;
 
 
     /////////////////////////////////////////////////////////////////////////
@@ -41,16 +41,18 @@ public class Serpiente {
     ///////////////////////////////////////////////////////////////////////
 
     //CONSTRUCTOR/ES
-    public Serpiente(int PosX, int PosY, int nancho, int elMasChico){
+    public Serpiente(int PosX, int PosY, int nancho, int elMasChico,int borde,int resuLittle){
         Pieza nuevaCabeza;
         nuevaCabeza = new Pieza(PosX,PosY,nancho);
 
         this.anchoAltoPantalla = elMasChico;
+        this.resuLittle = resuLittle;
 
         direccion = Pieza.DER;
         this.posX = PosX;
         this.posY = PosY;
         this.ancho = nancho;
+        this.borde = borde;
         cuerpo = new ArrayList<>();
         cuerpo.add(nuevaCabeza);
 
@@ -61,6 +63,8 @@ public class Serpiente {
         posX = antigua.getPosX();
         posY = antigua.getPosY();
         ancho = antigua.getAncho();
+        borde = antigua.getBorde();
+        resuLittle = antigua.getResuLittle();
 
         anchoAltoPantalla=antigua.getAnchoAltoPantalla();
 
@@ -89,6 +93,14 @@ public class Serpiente {
 
     public int getAnchoAltoPantalla() {
         return anchoAltoPantalla;
+    }
+
+    public int getBorde() {
+        return borde;
+    }
+
+    public int getResuLittle() {
+        return resuLittle;
     }
 
     public void moverse(){
@@ -150,10 +162,10 @@ public class Serpiente {
         Pieza cabeza= cuerpo.get(0);
 
         //multiplicamos elMasChico por el 100% de la pantalla menos el porcentaje equivalente al tamaño de la pieza (100/20)=0.05==0.95;
-        limiteIzq = 0;
-        limiteAba = anchoAltoPantalla*0.95f;
-        limiteDer = anchoAltoPantalla*0.95f;
-        limiteArr = 0;
+        limiteIzq = borde;
+        limiteAba = resuLittle-borde;
+        limiteDer = resuLittle-borde;
+        limiteArr = borde;
 
         return (cabeza.getPosX()<limiteIzq || cabeza.getPosX()>limiteDer ||
                 cabeza.getPosY()<limiteArr || cabeza.getPosY()>limiteAba);

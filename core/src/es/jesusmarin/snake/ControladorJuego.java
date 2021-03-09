@@ -26,6 +26,7 @@ public class ControladorJuego {
     protected final static String IMAGEN_INICIO = "imgInicio.png";
     protected final static String IMAGEN_FIN = "imgFin.png";
     protected final static String IMAGEN_FONDO = "imgFondo.png";
+    protected final static String IMAGEN_NEGRA = "negro.png";
 
     protected final static String SONIDO_INICIO = "Sounds/cancionInicio.mp3";
     protected final static String SONIDO_PARTIDA = "Sounds/cancionPartida.mp3";
@@ -62,6 +63,7 @@ public class ControladorJuego {
     protected Texture imgInicial;
     protected Texture imgFinal;
     protected Texture imgFondo;
+    protected Texture imgFondoNegra;
 
 
 
@@ -82,18 +84,25 @@ public class ControladorJuego {
     protected int controlTiempo;
 
     protected float elMasChico;
+    protected int anchoReal,altoReal,borde,resuLittle;
     /////////////////////////////////////////////////////////////////////////////////////
     //
     //COMPORTAMIENTOS
     //
     /////////////////////////////////////////////////////////////////////////////////////
-private ControladorJuego(int elMasChico){ //FALTA PONER ANCHOPANTALLA POR PARAMETRO
+private ControladorJuego(int elMasChico,int anchoReal,int altoReal,int borde,int resuLittle){ //FALTA PONER ANCHOPANTALLA POR PARAMETRO
     controladorVG = VideoJuego.INICIO;
     batch = new SpriteBatch();
+
+    setAnchoReal(anchoReal);
+    setAltoReal(altoReal);
+    this.borde = borde;
+    this.resuLittle = resuLittle;
 
     imgInicial = new Texture(IMAGEN_INICIO);
     imgFinal = new Texture(IMAGEN_FIN);
     imgFondo = new Texture(IMAGEN_FONDO);
+    imgFondoNegra = new Texture(IMAGEN_NEGRA);
 
     inicio = Gdx.audio.newMusic(Gdx.files.internal(SONIDO_INICIO));
     partida = Gdx.audio.newMusic(Gdx.files.internal(SONIDO_PARTIDA));
@@ -110,13 +119,29 @@ private ControladorJuego(int elMasChico){ //FALTA PONER ANCHOPANTALLA POR PARAME
 
 }
 
-public static ControladorJuego getInstance(int posXinicial,int posYinicial,int ancho ,int elMasChico){
+public static ControladorJuego getInstance(int posXinicial,int posYinicial,int ancho ,int elMasChico,int anchoReal,int altoReal,int borde,int resuLittle){
     if (ControladorJuego.miControlador==null){
-        miControlador = new ControladorJuego(elMasChico);
-        miControlador.setSnake(new Serpiente(posXinicial,posYinicial,ancho,elMasChico));
+        miControlador = new ControladorJuego(elMasChico,anchoReal,altoReal,borde,resuLittle);
+        miControlador.setSnake(new Serpiente(posXinicial,posYinicial,ancho,elMasChico,borde,resuLittle));
     }
     return ControladorJuego.miControlador;
 }
+
+    public int getAnchoReal() {
+        return anchoReal;
+    }
+
+    public void setAnchoReal(int anchoReal) {
+        this.anchoReal = anchoReal;
+    }
+
+    public int getAltoReal() {
+        return altoReal;
+    }
+
+    public void setAltoReal(int altoReal) {
+        this.altoReal = altoReal;
+    }
 
     public float getElMasChico() {
         return elMasChico;
@@ -125,8 +150,8 @@ public static ControladorJuego getInstance(int posXinicial,int posYinicial,int a
     private void pantallaInicio(){
     batch.begin();
     //AQUI HABRIA QUE PINTAR EL FONDO
-
-    batch.draw(imgInicial,0,0,getElMasChico(),getElMasChico());
+        batch.draw(imgFondoNegra,0,0,getAnchoReal(),getAltoReal());
+    batch.draw(imgInicial,borde,borde,getElMasChico(),getElMasChico());
     inicio.play();
 
     batch.end();
@@ -190,7 +215,8 @@ private void iniciaPartida(){
 private void finalPartida(){
 
     batch.begin();
-    batch.draw(imgFinal,0,0,getElMasChico(),getElMasChico());
+    batch.draw(imgFondoNegra,0,0,getAnchoReal(),getAltoReal());
+    batch.draw(imgFinal,borde,borde,getElMasChico(),getElMasChico());
     batch.end();
     fin.play();
 
@@ -205,7 +231,8 @@ private void finalPartida(){
 
 public void render(){
     batch.begin();
-    batch.draw(imgFondo,0,0,getElMasChico(),getElMasChico());
+    batch.draw(imgFondoNegra,0,0,getAnchoReal(),getAltoReal());
+    batch.draw(imgFondo,borde,borde,getElMasChico(),getElMasChico());
     batch.end();
     switch (controladorVG){
         case INICIO: this.pantallaInicio();
